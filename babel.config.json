@@ -1,0 +1,42 @@
+{
+  "presets": [
+    ["@babel/preset-env", {
+      "useBuiltIns": "usage",
+      "shippedProposals": true,
+      "corejs": 3
+    }],
+    "@babel/preset-typescript"
+  ],
+  "env": {
+    "node": {
+      "presets": [
+        ["@babel/preset-env", {
+          "modules": "commonjs",
+          "targets": {
+            "node": 10
+          }
+        }]
+      ]
+    },
+    "module": {
+      "presets": [
+        ["@babel/preset-env", {
+          "modules": false,
+          "bugfixes": true,
+          "targets": {
+            "esmodules": true
+          }
+        }]
+      ]
+    },
+    "browser": {
+      "presets": [
+        ["@babel/preset-env", {
+          "targets": {
+            "browsers": "defaults"
+          }
+        }]
+      ]
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "name": "react-popmotion-pure",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cometkim/react-popmotion-pure.git"
+  },
+  "author": {
+    "name": "Hyeseong Kim",
+    "email": "cometkim.kr@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "motion",
+    "animation",
+    "tween",
+    "spring",
+    "physics",
+    "react",
+    "react-hooks"
+  ],
+  "main": "src/index.ts",
+  "publishConfig": {
+    "main": "./lib/index.js",
+    "module": "./lib/index.mjs",
+    "browser": "./lib/index.umd.js",
+    "types": "./lib/index.d.ts",
+    "access": "public"
+  },
+  "files": [
+    "src",
+    "lib"
+  ],
+  "scripts": {
+    "build": "concurrently \"yarn:build:*\"",
+    "build:dts": "tsc --emitDeclarationOnly --outDir lib",
+    "build:node": "babel src --env-name node --extensions .ts --out-dir lib --out-file-extension .js --source-maps",
+    "build:module": "babel src --env-name module --extensions .ts --out-dir lib --out-file-extension .mjs --source-maps",
+    "build:browser": "BABEL_ENV=browser rollup -c",
+    "prepack": "rm -rf lib && yarn build"
+  },
+  "peerDependencies": {
+    "popmotion": "^9.0.0-beta-8 || ^9.0.0",
+    "react": ">=16.8.0"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-typescript": "^7.9.0",
+    "@yarnpkg/pnpify": "^2.0.0-rc.21",
+    "concurrently": "^5.1.0",
+    "popmotion": "^9.0.0-beta-8",
+    "react": "^16.13.1",
+    "rollup": "^2.6.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-sourcemaps": "^0.5.0",
+    "typescript": "^3.8.3"
+  }
+}
